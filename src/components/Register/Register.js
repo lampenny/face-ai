@@ -23,7 +23,7 @@ class Register extends React.Component {
     }
 
     onSubmitSignIn = () => {
-        fetch('https://radiant-mountain-51794.herokuapp.com/register/', {
+        fetch('https://radiant-mountain-51794.herokuapp.com/register', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ class Register extends React.Component {
                 password: this.state.password
             })
         })
-        .then(response => response.json())
+        .then(response => response.text())
         .then(user => {
             if (user.id) {
                 this.props.loadUser(user);
