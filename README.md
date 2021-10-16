@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Facial Recognition Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with React. It can detect human faces. The client UI is built using React with Redux managing UI and server state, REST API is built using node.js/express.js connected to a PostgreSQL database. The prediction data uses the Clarifai API. Frontend is hosted on Netlify and backend on Heroku.
 
 ## Available Scripts
 
