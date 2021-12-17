@@ -2,4 +2,4 @@
 
 A web application that can detect human faces. The client UI is built using React with Redux managing UI and server state, REST API is built using node.js/express.js connected to a PostgreSQL database. The prediction data uses the Clarifai API. Frontend will be hosted on Netlify and backend on Heroku.
 
-![faceapp_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/79977073/146497417-fcaf9b8d-d7f9-494c-bd07-f705eef7f051.gif)
+![face_app_large](https://user-images.githubusercontent.com/79977073/146499019-03fba80e-5758-492e-b100-266fdf2e18ab.gif)
