@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-
 import Particles from 'react-particles-js';
-import FaceRecognition from './components/FaceRecognition/FaceRecognition';
-import Navigation from './components/Navigation/Navigation';
-import Signin from './components/Signin/Signin';
-import Register from './components/Register/Register';
-import Logo from './components/Logo/Logo';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
-import Rank from './components/Rank/Rank';
-
+import { 
+  FaceRecognition,
+  Navigation,
+  Signin,
+  Register,
+  Logo,
+  ImageLinkForm,
+  Rank } from './components/index';
 import './App.css';
 
 const initialState = {
@@ -66,7 +65,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://radiant-mountain-51794.herokuapp.com/imageurl', {
+    fetch('https://smart-brain-api-final.herokuapp.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -76,7 +75,7 @@ class App extends Component {
     .then(response => response.json())
     .then(response => {
       if (response) {
-        fetch('https://radiant-mountain-51794.herokuapp.com/image', {
+        fetch('https://smart-brain-api-final.herokuapp.com/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -106,25 +105,25 @@ class App extends Component {
 
   render() {
    const { isSignedIn, imageUrl, route, box } = this.state;
-  return (
-    <div className="App">
-      <Particles className="particles" />
-     <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-     { route === 'home'
-      ? <div>
-          <Logo />
-          <Rank name={this.state.user.name} entries={this.state.user.entries}/>
-          <ImageLinkForm 
-          onInputChange={this.onInputChange} 
-          onButtonSubmit={this.onButtonSubmit} />
-          <FaceRecognition box={box} imageUrl={imageUrl} />
-        </div>
-     : (
-        route === 'signin' ?
-        <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-        : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-       )
-       } 
+   return (
+     <div className="App">
+       <Particles className="particles" />
+         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+         { route === 'home'
+           ? <div>
+              <Logo />
+              <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+              <ImageLinkForm 
+              onInputChange={this.onInputChange} 
+              onButtonSubmit={this.onButtonSubmit} />
+              <FaceRecognition box={box} imageUrl={imageUrl} />
+             </div>
+           : (
+              route === 'signin'
+              ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+              : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+             )
+         } 
     </div>
    );
   }

@@ -17,7 +17,7 @@ class Signin extends React.Component {
     }
 
     onSubmitSignIn = () => {
-        fetch('https://radiant-mountain-51794.herokuapp.com/signin', {
+        fetch('https://smart-brain-api-final.herokuapp.com/signin', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -49,8 +49,7 @@ class Signin extends React.Component {
                         type="email"
                         name="email-address" 
                         id="email-address"
-                        onChange={this.onEmailChange} 
-
+                        onChange={this.onEmailChange}
                     />
                 </div>
                 <div className="mv3">
@@ -65,7 +64,11 @@ class Signin extends React.Component {
                 </div>
                 </fieldset>
                 <div className="">
-                    <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
+                    <input
+                        onClick={this.onSubmitSignIn}
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                        type="submit"
+                        value="Sign in" />
                 </div>
                 <div className="lh-copy mt3">
                 <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>

@@ -10,20 +10,20 @@ class Register extends React.Component {
       }
   }
 
-    onNameChange = (event) => {
+  onNameChange = (event) => {
         this.setState({name: event.target.value})
     }
 
-    onEmailChange = (event) => {
+  onEmailChange = (event) => {
         this.setState({email: event.target.value})
     }
 
-    onPasswordChange = (event) => {
+  onPasswordChange = (event) => {
         this.setState({password: event.target.value})
     }
 
-    onSubmitSignIn = () => {
-        fetch('https://radiant-mountain-51794.herokuapp.com/register', {
+  onSubmitSignIn = () => {
+        fetch('https://smart-brain-api-final.herokuapp.com/register', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,8 +44,8 @@ class Register extends React.Component {
         })
     }
 
-    render() {
-        return (
+  render() {
+      return (
         <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
             <main className="pa4 black-80">
             <div className="measure">
