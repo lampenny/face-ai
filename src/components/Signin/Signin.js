@@ -15,9 +15,13 @@ class Signin extends React.Component {
     onPasswordChange = (event) => {
         this.setState({signInPassword: event.target.value})
     }
-
-    onSubmitSignIn = () => {
-        fetch('https://smart-brain-api-final.herokuapp.com/signin', {
+    // onSubmitSignIn = () => {
+    //     console.log(this.state)
+    //     this.props.onRouteChange('home')
+    // }
+    onSubmitSignIn = (event) => {
+        event.preventDefault();
+        fetch('https://radiant-mountain-51794.herokuapp.com/signin/', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -31,8 +35,10 @@ class Signin extends React.Component {
                     this.props.loadUser(user);
                     this.props.onRouteChange('home');
                 }
-            })
-    }
+            }).catch((error) => {
+                console.log(error);
+            }
+        )};
 
     render() {
         const { onRouteChange } = this.props;
