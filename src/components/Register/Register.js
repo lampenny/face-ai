@@ -23,7 +23,7 @@ class Register extends React.Component {
     };
 
     onSubmitSignIn = () => {
-        fetch('https://radiant-mountain-51794.herokuapp.com/register/', {
+        fetch('http://localhost:3001/register', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ class Register extends React.Component {
                     this.props.loadUser(user);
                     this.props.onRouteChange('home');
                 }
-            });
+            }).catch((err) => console.log('err', err));
     };
 
     render() {
